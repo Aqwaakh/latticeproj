@@ -169,11 +169,21 @@ def main():
         except ValueError:
             print("Invalid input. Please enter a number.")
 
+    while True:
+        try:
+            trials_input = input("Please enter the number of trials per dimension: ")
+            TRIALS_PER_DIMENSION = int(trials_input)
+            if TRIALS_PER_DIMENSION > 0:
+                break
+            else:
+                print("Please enter a positive integer.")
+        except ValueError:
+            print("Invalid input. Please enter an integer.")
+
     script_start_time = time.time()
 
     message = "This is a secret Message!"
     noise_level = 0.25 
-    TRIALS_PER_DIMENSION = 100
     
     min_dim = 2
     max_dim = 500

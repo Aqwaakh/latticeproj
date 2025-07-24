@@ -159,20 +159,30 @@ def main():
     
     while True:
         try:
-            runtime_input = input("Please enter the time limit for the lattice runtime script in minutes: ")
-            RUNTIME_LIMIT_MINUTES = float(runtime_input)
-            if RUNTIME_LIMIT_MINUTES > 0:
+            runtime_input = input("Please enter the time limit for the lattice runtime script in days: ")
+            RUNTIME_LIMIT_DAYS = float(runtime_input)
+            if RUNTIME_LIMIT_DAYS > 0:
                 break
             else:
                 print("Please enter a positive number.")
         except ValueError:
             print("Invalid input. Please enter a number.")
 
+    while True:
+        try:
+            trials_input = input("Please enter the number of trials per dimension: ")
+            TRIALS_PER_DIMENSION = int(trials_input)
+            if TRIALS_PER_DIMENSION > 0:
+                break
+            else:
+                print("Please enter a positive integer.")
+        except ValueError:
+            print("Invalid input. Please enter an integer.")
+
     script_start_time = time.time()
 
     message = "This is a secret Message!"
     noise_level = 0.25 
-    TRIALS_PER_DIMENSION = 10
     
     min_dim = 2
     max_dim = 500
@@ -182,15 +192,15 @@ def main():
     print(f"Message: '{message}'")
     print(f"Noise Level: {noise_level}")
     print(f"Testing Dimensions: {min_dim} to {max_dim} ({TRIALS_PER_DIMENSION} trials per dim)")
-    print(f"TIME LIMIT: {RUNTIME_LIMIT_MINUTES} MINUTE(S)")
+    print(f"TIME LIMIT: {RUNTIME_LIMIT_DAYS} DAY(S)")
     print("=" * 60)
     
     results = []
     for n in range(min_dim, max_dim + 1):
         # --- TIME CHECK ---
         elapsed_seconds = time.time() - script_start_time
-        if elapsed_seconds > RUNTIME_LIMIT_MINUTES * 60:
-            print(f"\nTime limit of {RUNTIME_LIMIT_MINUTES} minute(s) reached. Finalizing results.")
+        if elapsed_seconds > RUNTIME_LIMIT_DAYS * 24 * 60 * 60:
+            print(f"\nTime limit of {RUNTIME_LIMIT_DAYS} day(s) reached. Finalizing results.")
             break
         # --- END TIME CHECK ---
 

@@ -279,7 +279,7 @@ def convert_time(seconds):
     days = int((seconds % 604800) // 86400)
     return f"{weeks}w {days}d {hours}h"
 
-def test_different_key_sizes(start_script_time, time_limit_minutes):
+def test_different_key_sizes(start_script_time, time_limit_days):
     # Bit lengths to test, defined as a range
     start_bits = 8
     end_bits = 500 # This is now the theoretical maximum
@@ -304,8 +304,8 @@ def test_different_key_sizes(start_script_time, time_limit_minutes):
     for bits in bit_lengths:
         # --- TIME CHECK ---
         elapsed_seconds = time.time() - start_script_time
-        if elapsed_seconds > time_limit_minutes * 60:
-            print(f"\nTime limit of {time_limit_minutes} minute(s) reached. Finalizing results.")
+        if elapsed_seconds > time_limit_days * 24 * 60 * 60:
+            print(f"\nTime limit of {time_limit_days} day(s) reached. Finalizing results.")
             break
         # --- END TIME CHECK ---
         
@@ -422,9 +422,9 @@ def main():
     """Main method"""
     while True:
         try:
-            runtime_input = input("Please enter the time limit for the RSA script in minutes: ")
-            RUNTIME_LIMIT_MINUTES = float(runtime_input)
-            if RUNTIME_LIMIT_MINUTES > 0:
+            runtime_input = input("Please enter the time limit for the RSA script in days: ")
+            RUNTIME_LIMIT_DAYS = float(runtime_input)
+            if RUNTIME_LIMIT_DAYS > 0:
                 break
             else:
                 print("Please enter a positive number.")
@@ -434,11 +434,11 @@ def main():
     script_start_time = time.time()
 
     print("=" * 60)
-    print(f"RSA SCRIPT HAS STARTED | TIME LIMIT: {RUNTIME_LIMIT_MINUTES} MINUTE(S)")
+    print(f"RSA SCRIPT HAS STARTED | TIME LIMIT: {RUNTIME_LIMIT_DAYS} DAY(S)")
     print("=" * 60)
 
     # Test different key sizes
-    test_different_key_sizes(script_start_time, RUNTIME_LIMIT_MINUTES)
+    test_different_key_sizes(script_start_time, RUNTIME_LIMIT_DAYS)
 
     # After testing is done, plot the results
     output_file = 'rsa/rsa_summary.csv'
