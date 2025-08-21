@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 import os
 
 def is_prime(n, k=20):
-    # Überprüft, ob eine Zahl eine Primzahl ist
+    # Checkt, ob eine Zahl eine Primzahl ist
     if n < 2:
         return False
     if n == 2:
@@ -46,7 +46,7 @@ def generate_prime(bits):
             return candidate
 
 def rsa_encrypt(n, e, msg):
-    # Verschlüsselt eine Nachricht
+    # Verschlüsselt eine Nachricht nach RSA
     encrypted = []
     for char in msg:
         m = ord(char)
@@ -57,7 +57,7 @@ def rsa_encrypt(n, e, msg):
     return ','.join(encrypted)
 
 def rsa_decrypt(n, d, ciphertext):
-    # Entschlüsselt eine verschlüsselte Nachricht
+    # Entschlüsselt eine mit RSA verschlüsselte Nachricht mittels private Key d
     decrypted_chars = []
     for c_str in ciphertext.split(','):
         c = int(c_str)
@@ -192,7 +192,7 @@ def rsa_force_decrypt(n, e, ciphertext):
         return f"FEHLER: Faktorisierung fehlgeschlagen mit Ausnahme nach {elapsed:.2f} Sekunden: {str(ex)}"
 
 def gcd(a, b):
-    # Berechnet den größten gemeinsamen Teiler
+    # Berechnet den größten gemeinsamen Teiler zweier Zahlen
     while b:
         a, b = b, a % b
     return a
@@ -215,7 +215,7 @@ def calc_private_key(p, q, e):
         return x % phi
 
 def convert_time(seconds):
-    # Konvertiert Sekunden in ein lesbares Zeitformat
+    # Konvertiert Sekunden in ein besser lesbares Zeitformat
     seconds = round(seconds, 2)
     
     if seconds < 60:
@@ -245,14 +245,14 @@ def convert_time(seconds):
     return f"{weeks}w {days}d {hours}h"
 
 def test_different_key_sizes(start_script_time, time_limit_hours):
-    # Testet RSA mit verschiedenen Schlüsselgrößen
+    # Testet RSA mit stetig wachsenden Schlüsselgrößen um Skalierung zu erfassen
     start_bits = 8
     end_bits = 500
     step_bits = 8
     bit_lengths = range(start_bits, end_bits + 1, step_bits)
     
-    msg = "This is a secret Message!"
-    e = 65537
+    msg = "This is a secret Message!" # Zu verschlüsselnde Nachricht
+    e = 65537 # Konstante für öffentlichen Exponenten
     
     output_file = 'rsa/rsa_summary.csv'
     
@@ -329,7 +329,7 @@ def test_different_key_sizes(start_script_time, time_limit_hours):
         print("-" * 50)
 
 def plot_results(csv_path):
-    # Plottet die Ergebnisse der Entschlüsselungszeiten
+    # Plottet die Ergebnisse der Ver- und Entschlüsselungszeiten in zwei Graphen
     print(f"\nErzeuge Plots aus {csv_path}...")
     try:
         df = pd.read_csv(csv_path)
