@@ -1,6 +1,5 @@
 # imports
 import time
-import math
 import random
 import subprocess
 import re
