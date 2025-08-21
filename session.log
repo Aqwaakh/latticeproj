@@ -7491,3 +7491,323 @@ detected L1 = 32768 bytes, L2 = 33554432 bytes, CL = 64 bytes
 08/15/25 12:38:28, Could not parse yafu.ini from /mnt/c/WINDOWS/system32/latticeproj
 
 08/15/25 12:38:28, Random seed: 10616191834141124119
+08/21/25 23:29:20, =====================================
+08/21/25 23:29:20, System/Build Info: 
+08/21/25 23:29:20, detected AMD Ryzen 5 3600X 6-Core Processor             
+detected L1 = 32768 bytes, L2 = 33554432 bytes, CL = 64 bytes
+08/21/25 23:29:20, CPU features enabled: 08/21/25 23:29:20, 
+08/21/25 23:29:20, using 1 random witness for Rabin-Miller PRP checks
+08/21/25 23:29:20, Cached 664579 primes: max prime is 9999991
+08/21/25 23:29:20, Could not parse yafu.ini from /mnt/c/WINDOWS/system32/latticeproj
+
+08/21/25 23:29:20, Random seed: 6516997853351665644
+08/21/25 23:29:20, Processing: factor(31243)
+08/21/25 23:29:20, Result    : 1
+08/21/25 23:29:20, =====================================
+08/21/25 23:29:20, System/Build Info: 
+08/21/25 23:29:20, detected AMD Ryzen 5 3600X 6-Core Processor             
+detected L1 = 32768 bytes, L2 = 33554432 bytes, CL = 64 bytes
+08/21/25 23:29:20, CPU features enabled: 08/21/25 23:29:20, 
+08/21/25 23:29:20, using 1 random witness for Rabin-Miller PRP checks
+08/21/25 23:29:20, Cached 664579 primes: max prime is 9999991
+08/21/25 23:29:20, Could not parse yafu.ini from /mnt/c/WINDOWS/system32/latticeproj
+
+08/21/25 23:29:20, Random seed: 2288003447388708015
+08/21/25 23:29:20, Processing: factor(2618931853)
+08/21/25 23:29:20, Result    : 1
+08/21/25 23:29:20, =====================================
+08/21/25 23:29:20, System/Build Info: 
+08/21/25 23:29:20, detected AMD Ryzen 5 3600X 6-Core Processor             
+detected L1 = 32768 bytes, L2 = 33554432 bytes, CL = 64 bytes
+08/21/25 23:29:20, CPU features enabled: 08/21/25 23:29:20, 
+08/21/25 23:29:20, using 1 random witness for Rabin-Miller PRP checks
+08/21/25 23:29:20, Cached 664579 primes: max prime is 9999991
+08/21/25 23:29:20, Could not parse yafu.ini from /mnt/c/WINDOWS/system32/latticeproj
+
+08/21/25 23:29:20, Random seed: 6733161649090794513
+08/21/25 23:29:20, Processing: factor(131966782461133)
+08/21/25 23:29:20, Result    : 1
+08/21/25 23:29:20, =====================================
+08/21/25 23:29:20, System/Build Info: 
+08/21/25 23:29:20, detected AMD Ryzen 5 3600X 6-Core Processor             
+detected L1 = 32768 bytes, L2 = 33554432 bytes, CL = 64 bytes
+08/21/25 23:29:20, CPU features enabled: 08/21/25 23:29:20, 
+08/21/25 23:29:20, using 1 random witness for Rabin-Miller PRP checks
+08/21/25 23:29:20, Cached 664579 primes: max prime is 9999991
+08/21/25 23:29:20, Could not parse yafu.ini from /mnt/c/WINDOWS/system32/latticeproj
+
+08/21/25 23:29:20, Random seed: 3466149883194464383
+08/21/25 23:29:20, Processing: factor(11292513807021686053)
+08/21/25 23:29:20, Result    : 1
+08/21/25 23:29:20, =====================================
+08/21/25 23:29:20, System/Build Info: 
+08/21/25 23:29:20, detected AMD Ryzen 5 3600X 6-Core Processor             
+detected L1 = 32768 bytes, L2 = 33554432 bytes, CL = 64 bytes
+08/21/25 23:29:20, CPU features enabled: 08/21/25 23:29:20, 
+08/21/25 23:29:20, using 1 random witness for Rabin-Miller PRP checks
+08/21/25 23:29:20, Cached 664579 primes: max prime is 9999991
+08/21/25 23:29:20, Could not parse yafu.ini from /mnt/c/WINDOWS/system32/latticeproj
+
+08/21/25 23:29:20, Random seed: 3477241127443538510
+08/21/25 23:29:20, Processing: factor(731930071938282041545163)
+08/21/25 23:29:20, Result    : 1
+08/21/25 23:29:20, =====================================
+08/21/25 23:29:20, System/Build Info: 
+08/21/25 23:29:20, detected AMD Ryzen 5 3600X 6-Core Processor             
+detected L1 = 32768 bytes, L2 = 33554432 bytes, CL = 64 bytes
+08/21/25 23:29:20, CPU features enabled: 08/21/25 23:29:20, 
+08/21/25 23:29:20, using 1 random witness for Rabin-Miller PRP checks
+08/21/25 23:29:20, Cached 664579 primes: max prime is 9999991
+08/21/25 23:29:20, Could not parse yafu.ini from /mnt/c/WINDOWS/system32/latticeproj
+
+08/21/25 23:29:20, Random seed: 7295382857706522125
+08/21/25 23:29:20, Processing: factor(31484896886315544328640903057)
+08/21/25 23:29:21, Result    : 1
+08/21/25 23:29:21, =====================================
+08/21/25 23:29:21, System/Build Info: 
+08/21/25 23:29:21, detected AMD Ryzen 5 3600X 6-Core Processor             
+detected L1 = 32768 bytes, L2 = 33554432 bytes, CL = 64 bytes
+08/21/25 23:29:21, CPU features enabled: 08/21/25 23:29:21, 
+08/21/25 23:29:21, using 1 random witness for Rabin-Miller PRP checks
+08/21/25 23:29:21, Cached 664579 primes: max prime is 9999991
+08/21/25 23:29:21, Could not parse yafu.ini from /mnt/c/WINDOWS/system32/latticeproj
+
+08/21/25 23:29:21, Random seed: 4028487627407636861
+08/21/25 23:29:21, Processing: factor(3399451234386248121321117819060551)
+08/21/25 23:29:21, Result    : 1
+08/21/25 23:29:22, =====================================
+08/21/25 23:29:22, System/Build Info: 
+08/21/25 23:29:22, detected AMD Ryzen 5 3600X 6-Core Processor             
+detected L1 = 32768 bytes, L2 = 33554432 bytes, CL = 64 bytes
+08/21/25 23:29:22, CPU features enabled: 08/21/25 23:29:22, 
+08/21/25 23:29:22, using 1 random witness for Rabin-Miller PRP checks
+08/21/25 23:29:22, Cached 664579 primes: max prime is 9999991
+08/21/25 23:29:22, Could not parse yafu.ini from /mnt/c/WINDOWS/system32/latticeproj
+
+08/21/25 23:29:22, Random seed: 732992087173947266
+08/21/25 23:29:22, Processing: factor(242245155938095483724680396357480057009)
+08/21/25 23:29:22, Result    : 1
+08/21/25 23:29:22, =====================================
+08/21/25 23:29:22, System/Build Info: 
+08/21/25 23:29:22, detected AMD Ryzen 5 3600X 6-Core Processor             
+detected L1 = 32768 bytes, L2 = 33554432 bytes, CL = 64 bytes
+08/21/25 23:29:22, CPU features enabled: 08/21/25 23:29:22, 
+08/21/25 23:29:22, using 1 random witness for Rabin-Miller PRP checks
+08/21/25 23:29:22, Cached 664579 primes: max prime is 9999991
+08/21/25 23:29:22, Could not parse yafu.ini from /mnt/c/WINDOWS/system32/latticeproj
+
+08/21/25 23:29:22, Random seed: 15108536510793198622
+08/21/25 23:29:22, Processing: factor(12822250068636428810182306593164777526441209)
+08/21/25 23:29:23, Result    : 1
+08/21/25 23:29:23, =====================================
+08/21/25 23:29:23, System/Build Info: 
+08/21/25 23:29:23, detected AMD Ryzen 5 3600X 6-Core Processor             
+detected L1 = 32768 bytes, L2 = 33554432 bytes, CL = 64 bytes
+08/21/25 23:29:23, CPU features enabled: 08/21/25 23:29:23, 
+08/21/25 23:29:23, using 1 random witness for Rabin-Miller PRP checks
+08/21/25 23:29:23, Cached 664579 primes: max prime is 9999991
+08/21/25 23:29:23, Could not parse yafu.ini from /mnt/c/WINDOWS/system32/latticeproj
+
+08/21/25 23:29:23, Random seed: 9282940274981326603
+08/21/25 23:29:23, Processing: factor(675514735055710201986441065562446374494074387767)
+08/21/25 23:29:24, Result    : 1
+08/21/25 23:29:24, =====================================
+08/21/25 23:29:24, System/Build Info: 
+08/21/25 23:29:24, detected AMD Ryzen 5 3600X 6-Core Processor             
+detected L1 = 32768 bytes, L2 = 33554432 bytes, CL = 64 bytes
+08/21/25 23:29:24, CPU features enabled: 08/21/25 23:29:24, 
+08/21/25 23:29:24, using 1 random witness for Rabin-Miller PRP checks
+08/21/25 23:29:24, Cached 664579 primes: max prime is 9999991
+08/21/25 23:29:24, Could not parse yafu.ini from /mnt/c/WINDOWS/system32/latticeproj
+
+08/21/25 23:29:24, Random seed: 1942497829455171752
+08/21/25 23:29:24, Processing: factor(84074334611743399069964373471955916321196644971680619)
+08/21/25 23:29:26, Result    : 1
+08/21/25 23:29:26, =====================================
+08/21/25 23:29:26, System/Build Info: 
+08/21/25 23:29:26, detected AMD Ryzen 5 3600X 6-Core Processor             
+detected L1 = 32768 bytes, L2 = 33554432 bytes, CL = 64 bytes
+08/21/25 23:29:26, CPU features enabled: 08/21/25 23:29:26, 
+08/21/25 23:29:26, using 1 random witness for Rabin-Miller PRP checks
+08/21/25 23:29:26, Cached 664579 primes: max prime is 9999991
+08/21/25 23:29:26, Could not parse yafu.ini from /mnt/c/WINDOWS/system32/latticeproj
+
+08/21/25 23:29:26, Random seed: 7599310119350981132
+08/21/25 23:29:26, Processing: factor(3485568091288137133644649552030476607978528597000728774203)
+08/21/25 23:29:29, Result    : 1
+08/21/25 23:29:29, =====================================
+08/21/25 23:29:29, System/Build Info: 
+08/21/25 23:29:29, detected AMD Ryzen 5 3600X 6-Core Processor             
+detected L1 = 32768 bytes, L2 = 33554432 bytes, CL = 64 bytes
+08/21/25 23:29:29, CPU features enabled: 08/21/25 23:29:29, 
+08/21/25 23:29:29, using 1 random witness for Rabin-Miller PRP checks
+08/21/25 23:29:29, Cached 664579 primes: max prime is 9999991
+08/21/25 23:29:29, Could not parse yafu.ini from /mnt/c/WINDOWS/system32/latticeproj
+
+08/21/25 23:29:29, Random seed: 7247756212461896954
+08/21/25 23:31:09, =====================================
+08/21/25 23:31:09, System/Build Info: 
+08/21/25 23:31:09, detected AMD Ryzen 5 3600X 6-Core Processor             
+detected L1 = 32768 bytes, L2 = 33554432 bytes, CL = 64 bytes
+08/21/25 23:31:09, CPU features enabled: 08/21/25 23:31:09, 
+08/21/25 23:31:09, using 1 random witness for Rabin-Miller PRP checks
+08/21/25 23:31:09, Cached 664579 primes: max prime is 9999991
+08/21/25 23:31:09, Could not parse yafu.ini from /mnt/c/WINDOWS/system32/latticeproj
+
+08/21/25 23:31:09, Random seed: 6012543209252139862
+08/21/25 23:31:10, Processing: factor(33221)
+08/21/25 23:31:10, Result    : 1
+08/21/25 23:31:10, =====================================
+08/21/25 23:31:10, System/Build Info: 
+08/21/25 23:31:10, detected AMD Ryzen 5 3600X 6-Core Processor             
+detected L1 = 32768 bytes, L2 = 33554432 bytes, CL = 64 bytes
+08/21/25 23:31:10, CPU features enabled: 08/21/25 23:31:10, 
+08/21/25 23:31:10, using 1 random witness for Rabin-Miller PRP checks
+08/21/25 23:31:10, Cached 664579 primes: max prime is 9999991
+08/21/25 23:31:10, Could not parse yafu.ini from /mnt/c/WINDOWS/system32/latticeproj
+
+08/21/25 23:31:10, Random seed: 13323409836070310623
+08/21/25 23:31:10, Processing: factor(2141083829)
+08/21/25 23:31:10, Result    : 1
+08/21/25 23:31:10, =====================================
+08/21/25 23:31:10, System/Build Info: 
+08/21/25 23:31:10, detected AMD Ryzen 5 3600X 6-Core Processor             
+detected L1 = 32768 bytes, L2 = 33554432 bytes, CL = 64 bytes
+08/21/25 23:31:10, CPU features enabled: 08/21/25 23:31:10, 
+08/21/25 23:31:10, using 1 random witness for Rabin-Miller PRP checks
+08/21/25 23:31:10, Cached 664579 primes: max prime is 9999991
+08/21/25 23:31:10, Could not parse yafu.ini from /mnt/c/WINDOWS/system32/latticeproj
+
+08/21/25 23:31:10, Random seed: 3151182633525418963
+08/21/25 23:31:10, Processing: factor(176650756423061)
+08/21/25 23:31:10, Result    : 1
+08/21/25 23:31:10, =====================================
+08/21/25 23:31:10, System/Build Info: 
+08/21/25 23:31:10, detected AMD Ryzen 5 3600X 6-Core Processor             
+detected L1 = 32768 bytes, L2 = 33554432 bytes, CL = 64 bytes
+08/21/25 23:31:10, CPU features enabled: 08/21/25 23:31:10, 
+08/21/25 23:31:10, using 1 random witness for Rabin-Miller PRP checks
+08/21/25 23:31:10, Cached 664579 primes: max prime is 9999991
+08/21/25 23:31:10, Could not parse yafu.ini from /mnt/c/WINDOWS/system32/latticeproj
+
+08/21/25 23:31:10, Random seed: 13892976667780369362
+08/21/25 23:31:10, Processing: factor(7619989156038723179)
+08/21/25 23:31:10, Result    : 1
+08/21/25 23:31:10, =====================================
+08/21/25 23:31:10, System/Build Info: 
+08/21/25 23:31:10, detected AMD Ryzen 5 3600X 6-Core Processor             
+detected L1 = 32768 bytes, L2 = 33554432 bytes, CL = 64 bytes
+08/21/25 23:31:10, CPU features enabled: 08/21/25 23:31:10, 
+08/21/25 23:31:10, using 1 random witness for Rabin-Miller PRP checks
+08/21/25 23:31:10, Cached 664579 primes: max prime is 9999991
+08/21/25 23:31:10, Could not parse yafu.ini from /mnt/c/WINDOWS/system32/latticeproj
+
+08/21/25 23:31:10, Random seed: 6128560705800235875
+08/21/25 23:31:10, Processing: factor(565888817859616110867533)
+08/21/25 23:31:10, Result    : 1
+08/21/25 23:31:10, =====================================
+08/21/25 23:31:10, System/Build Info: 
+08/21/25 23:31:10, detected AMD Ryzen 5 3600X 6-Core Processor             
+detected L1 = 32768 bytes, L2 = 33554432 bytes, CL = 64 bytes
+08/21/25 23:31:10, CPU features enabled: 08/21/25 23:31:10, 
+08/21/25 23:31:10, using 1 random witness for Rabin-Miller PRP checks
+08/21/25 23:31:10, Cached 664579 primes: max prime is 9999991
+08/21/25 23:31:10, Could not parse yafu.ini from /mnt/c/WINDOWS/system32/latticeproj
+
+08/21/25 23:31:10, Random seed: 7509507263584037328
+08/21/25 23:31:10, Processing: factor(46309647716904168395924896301)
+08/21/25 23:31:11, Result    : 1
+08/21/25 23:31:11, =====================================
+08/21/25 23:31:11, System/Build Info: 
+08/21/25 23:31:11, detected AMD Ryzen 5 3600X 6-Core Processor             
+detected L1 = 32768 bytes, L2 = 33554432 bytes, CL = 64 bytes
+08/21/25 23:31:11, CPU features enabled: 08/21/25 23:31:11, 
+08/21/25 23:31:11, using 1 random witness for Rabin-Miller PRP checks
+08/21/25 23:31:11, Cached 664579 primes: max prime is 9999991
+08/21/25 23:31:11, Could not parse yafu.ini from /mnt/c/WINDOWS/system32/latticeproj
+
+08/21/25 23:31:11, Random seed: 14342318324486993885
+08/21/25 23:31:11, Processing: factor(2655003884689806374190445432759627)
+08/21/25 23:31:11, Result    : 1
+08/21/25 23:31:11, =====================================
+08/21/25 23:31:11, System/Build Info: 
+08/21/25 23:31:11, detected AMD Ryzen 5 3600X 6-Core Processor             
+detected L1 = 32768 bytes, L2 = 33554432 bytes, CL = 64 bytes
+08/21/25 23:31:11, CPU features enabled: 08/21/25 23:31:11, 
+08/21/25 23:31:11, using 1 random witness for Rabin-Miller PRP checks
+08/21/25 23:31:11, Cached 664579 primes: max prime is 9999991
+08/21/25 23:31:11, Could not parse yafu.ini from /mnt/c/WINDOWS/system32/latticeproj
+
+08/21/25 23:31:11, Random seed: 823318289881399385
+08/21/25 23:31:11, Processing: factor(129364718907292855274390496675692816263)
+08/21/25 23:31:12, Result    : 1
+08/21/25 23:31:12, =====================================
+08/21/25 23:31:12, System/Build Info: 
+08/21/25 23:31:12, detected AMD Ryzen 5 3600X 6-Core Processor             
+detected L1 = 32768 bytes, L2 = 33554432 bytes, CL = 64 bytes
+08/21/25 23:31:12, CPU features enabled: 08/21/25 23:31:12, 
+08/21/25 23:31:12, using 1 random witness for Rabin-Miller PRP checks
+08/21/25 23:31:12, Cached 664579 primes: max prime is 9999991
+08/21/25 23:31:12, Could not parse yafu.ini from /mnt/c/WINDOWS/system32/latticeproj
+
+08/21/25 23:31:12, Random seed: 7991466464492301605
+08/21/25 23:31:12, Processing: factor(12793620198405699415532619068506779616264529)
+08/21/25 23:31:13, Result    : 1
+08/21/25 23:31:13, =====================================
+08/21/25 23:31:13, System/Build Info: 
+08/21/25 23:31:13, detected AMD Ryzen 5 3600X 6-Core Processor             
+detected L1 = 32768 bytes, L2 = 33554432 bytes, CL = 64 bytes
+08/21/25 23:31:13, CPU features enabled: 08/21/25 23:31:13, 
+08/21/25 23:31:13, using 1 random witness for Rabin-Miller PRP checks
+08/21/25 23:31:13, Cached 664579 primes: max prime is 9999991
+08/21/25 23:31:13, Could not parse yafu.ini from /mnt/c/WINDOWS/system32/latticeproj
+
+08/21/25 23:31:13, Random seed: 12036983173082813082
+08/21/25 23:31:13, Processing: factor(697327015412541530735441626271847201769933548283)
+08/21/25 23:31:14, Result    : 1
+08/21/25 23:31:14, =====================================
+08/21/25 23:31:14, System/Build Info: 
+08/21/25 23:31:14, detected AMD Ryzen 5 3600X 6-Core Processor             
+detected L1 = 32768 bytes, L2 = 33554432 bytes, CL = 64 bytes
+08/21/25 23:31:14, CPU features enabled: 08/21/25 23:31:14, 
+08/21/25 23:31:14, using 1 random witness for Rabin-Miller PRP checks
+08/21/25 23:31:14, Cached 664579 primes: max prime is 9999991
+08/21/25 23:31:14, Could not parse yafu.ini from /mnt/c/WINDOWS/system32/latticeproj
+
+08/21/25 23:31:14, Random seed: 6151428504962851064
+08/21/25 23:31:14, Processing: factor(35527141581912976770878242418862496485157980778620413)
+08/21/25 23:31:15, Result    : 1
+08/21/25 23:31:15, =====================================
+08/21/25 23:31:15, System/Build Info: 
+08/21/25 23:31:15, detected AMD Ryzen 5 3600X 6-Core Processor             
+detected L1 = 32768 bytes, L2 = 33554432 bytes, CL = 64 bytes
+08/21/25 23:31:15, CPU features enabled: 08/21/25 23:31:15, 
+08/21/25 23:31:15, using 1 random witness for Rabin-Miller PRP checks
+08/21/25 23:31:15, Cached 664579 primes: max prime is 9999991
+08/21/25 23:31:15, Could not parse yafu.ini from /mnt/c/WINDOWS/system32/latticeproj
+
+08/21/25 23:31:15, Random seed: 5681161786567664064
+08/21/25 23:31:15, Processing: factor(2584549720829117942801368820847263961743404520308629388717)
+08/21/25 23:31:18, Result    : 1
+08/21/25 23:31:18, =====================================
+08/21/25 23:31:18, System/Build Info: 
+08/21/25 23:31:18, detected AMD Ryzen 5 3600X 6-Core Processor             
+detected L1 = 32768 bytes, L2 = 33554432 bytes, CL = 64 bytes
+08/21/25 23:31:18, CPU features enabled: 08/21/25 23:31:18, 
+08/21/25 23:31:18, using 1 random witness for Rabin-Miller PRP checks
+08/21/25 23:31:18, Cached 664579 primes: max prime is 9999991
+08/21/25 23:31:18, Could not parse yafu.ini from /mnt/c/WINDOWS/system32/latticeproj
+
+08/21/25 23:31:18, Random seed: 3160230310221183071
+08/21/25 23:31:18, Processing: factor(359458172776053807658855220688709725501097450224827504227685827)
+08/21/25 23:31:23, Result    : 1
+08/21/25 23:31:23, =====================================
+08/21/25 23:31:23, System/Build Info: 
+08/21/25 23:31:23, detected AMD Ryzen 5 3600X 6-Core Processor             
+detected L1 = 32768 bytes, L2 = 33554432 bytes, CL = 64 bytes
+08/21/25 23:31:23, CPU features enabled: 08/21/25 23:31:23, 
+08/21/25 23:31:23, using 1 random witness for Rabin-Miller PRP checks
+08/21/25 23:31:23, Cached 664579 primes: max prime is 9999991
+08/21/25 23:31:23, Could not parse yafu.ini from /mnt/c/WINDOWS/system32/latticeproj
+
+08/21/25 23:31:23, Random seed: 11607192549041031814

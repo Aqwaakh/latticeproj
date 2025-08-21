@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 import os
 
 def convert_time(seconds):
-    """Converts seconds into a human-readable format (ms, s, min)"""
+    # Konvertiert Sekunden in ein besser lesbares Zeitformat
     if seconds < 1:
         return f"{seconds * 1000:.2f} ms"
     elif seconds < 60:
@@ -19,14 +19,8 @@ def convert_time(seconds):
         secs = seconds % 60
         return f"{minutes} min {secs:.2f} s"
 
-# --- Key Generation ---
-
 def generate_keys(n: int) -> Tuple[np.ndarray, np.ndarray]:
-    """
-    Generates a pair of bases for the same lattice. This version uses a 
-    moderately "bad" basis to ensure decryption succeeds, allowing for
-    a clear analysis of how runtime scales with dimension.
-    """
+    # Erzeugt ein Paar von Gitterbasen
     private_basis = np.eye(n, dtype=int)
     public_basis = private_basis.copy()
     for _ in range(n * 2):
@@ -37,9 +31,8 @@ def generate_keys(n: int) -> Tuple[np.ndarray, np.ndarray]:
             
     return private_basis, public_basis
 
-# --- Encryption & Decryption ---
-
 def encrypt(message: str, n: int, noise_level: float) -> Tuple[List[List[float]], int]:
+    # Verschlüsselt eine Nachricht
     binary_message = ''.join(format(ord(char), '08b') for char in message)
     original_bit_length = len(binary_message)
     
@@ -58,6 +51,7 @@ def encrypt(message: str, n: int, noise_level: float) -> Tuple[List[List[float]]
     return encrypted_vectors, original_bit_length
 
 def decrypt(solved_vectors: List[List[int]], n: int, original_bit_length: int) -> str:
+    # Entschlüsselt eine Nachricht
     binary_message = ""
     for vector in solved_vectors:
         if not vector:
@@ -84,15 +78,15 @@ def decrypt(solved_vectors: List[List[int]], n: int, original_bit_length: int) -
                 
     return message
 
-# --- CVP Solvers ---
-
 def solve_cvp_good_basis(target_vectors: List[List[float]]) -> List[List[int]]:
+    # Löst das CVP mit einer guten Basis
     solved_vectors = []
     for v in target_vectors:
         solved_vectors.append([int(round(c)) for c in v])
     return solved_vectors
 
 def solve_cvp_bad_basis(basis: np.ndarray, target_vectors: List[List[float]]) -> List[List[int]]:
+    # Löst das CVP mit einer schlechten Basis (LLL-Reduktion)
     solved_vectors = []
     SCALE = 10000
     
@@ -111,22 +105,18 @@ def solve_cvp_bad_basis(basis: np.ndarray, target_vectors: List[List[float]]) ->
 
     except Exception as e:
         n = basis.shape[0]
-        print(f"    - CVP solver failed for dimension {n}: {e}")
+        print(f"FEHLER: CVP solver failed for dimension {n}: {e}")
         return [[0] * n for _ in target_vectors]
 
-# --- Analysis & Reporting ---
-
 def measure_success(original_message: str, decrypted_message: str) -> float:
+    # Misst die Erfolgsrate der Entschlüsselung
     if not original_message or not decrypted_message:
         return 0.0
     correct = sum(1 for i in range(min(len(original_message), len(decrypted_message))) if original_message[i] == decrypted_message[i])
     return (correct / len(original_message)) * 100
 
 def run_single_trial(n: int, message: str, noise_level: float):
-    """
-    Runs a single encryption/decryption trial for a given dimension and returns the results.
-    This function is silent and does not print to the console.
-    """
+    # Führt einen einzelnen Verschlüsselungs- / Entschlüsselungsversuch durch
     _, public_basis = generate_keys(n)
     
     start_time_encrypt = time.time()
@@ -143,7 +133,7 @@ def run_single_trial(n: int, message: str, noise_level: float):
     bad_solved_vectors = solve_cvp_bad_basis(public_basis, encrypted_vectors)
     time_bad = time.time() - start_time_bad
     bad_decrypted_message = decrypt(bad_solved_vectors, n, original_bit_length)
-    success_bad = measure_success(message, bad_decrypted_message)
+    success_bad = measure_success(message, bad_decrypted_message);
 
     return {
         'time_encrypt': time_encrypt, 
@@ -154,30 +144,31 @@ def run_single_trial(n: int, message: str, noise_level: float):
     }
 
 def main():
+    # Hauptfunktion zur Analyse der Laufzeit
     random.seed(42)
     np.random.seed(42)
     
     while True:
         try:
-            runtime_input = input("Please enter the time limit for the lattice runtime script in days: ")
-            RUNTIME_LIMIT_DAYS = float(runtime_input)
-            if RUNTIME_LIMIT_DAYS > 0:
+            runtime_input = input("Bitte geben Sie die Laufzeitgrenze für das Skript in Stunden ein: ")
+            RUNTIME_LIMIT_HOURS = float(runtime_input)
+            if RUNTIME_LIMIT_HOURS > 0:
                 break
             else:
-                print("Please enter a positive number.")
+                print("Ungültige Eingabe. Bitte geben Sie eine positive Ganzzahl ein.")
         except ValueError:
-            print("Invalid input. Please enter a number.")
+            print("Ungültige Eingabe. Bitte geben Sie eine Zahl ein.")
 
     while True:
         try:
-            trials_input = input("Please enter the number of trials per dimension: ")
+            trials_input = input("Bitte geben Sie die Anzahl der Versuche pro Dimension ein: ")
             TRIALS_PER_DIMENSION = int(trials_input)
             if TRIALS_PER_DIMENSION > 0:
                 break
             else:
-                print("Please enter a positive integer.")
+                print("Ungültige Eingabe. Bitte geben Sie eine positive Ganzzahl ein.")
         except ValueError:
-            print("Invalid input. Please enter an integer.")
+            print("Ungültige Eingabe. Bitte geben Sie eine Ganzzahl ein.")
 
     script_start_time = time.time()
 
@@ -188,26 +179,24 @@ def main():
     max_dim = 500
     
     print("=" * 60)
-    print("Lattice-Based Cryptography Scaling Analysis - EXPERIMENT 1: RUNTIME")
-    print(f"Message: '{message}'")
-    print(f"Noise Level: {noise_level}")
-    print(f"Testing Dimensions: {min_dim} to {max_dim} ({TRIALS_PER_DIMENSION} trials per dim)")
-    print(f"TIME LIMIT: {RUNTIME_LIMIT_DAYS} DAY(S)")
+    print("Gitterbasierte Kryptographie Skalierungsanalyse - EXPERIMENT 1: LAUFZEIT")
+    print(f"Nachricht: '{message}'")
+    print(f"Rauschpegel: {noise_level}")
+    print(f"Testdimensionen: {min_dim} bis {max_dim} ({TRIALS_PER_DIMENSION} Versuche pro Dimension)")
+    print(f"ZEITLIMIT: {RUNTIME_LIMIT_HOURS} STUNDE(N)")
     print("=" * 60)
     
     results = []
     for n in range(min_dim, max_dim + 1):
-        # --- TIME CHECK ---
         elapsed_seconds = time.time() - script_start_time
-        if elapsed_seconds > RUNTIME_LIMIT_DAYS * 24 * 60 * 60:
-            print(f"\nTime limit of {RUNTIME_LIMIT_DAYS} day(s) reached. Finalizing results.")
+        if elapsed_seconds > RUNTIME_LIMIT_HOURS * 60 * 60:
+            print(f"\nZeitlimit von {RUNTIME_LIMIT_HOURS} Stunde(n) erreicht. Finalisiere Ergebnisse.")
             break
-        # --- END TIME CHECK ---
 
         total_time_encrypt, total_time_good, total_time_bad = 0, 0, 0
         total_success_good, total_success_bad = 0, 0
 
-        print(f"\n--- Testing Dimension {n} ---")
+        print(f"\n--- Testdimension {n} ---")
         for i in range(TRIALS_PER_DIMENSION):
             trial_results = run_single_trial(n, message, noise_level)
             total_time_encrypt += trial_results['time_encrypt']
@@ -215,9 +204,8 @@ def main():
             total_time_bad += trial_results['time_bad']
             total_success_good += trial_results['success_good']
             total_success_bad += trial_results['success_bad']
-            print(f"  Trial {i + 1}/{TRIALS_PER_DIMENSION} completed...", end='\r')
-
-        # Calculate and store averages
+            print(f"  Versuch {i + 1}/{TRIALS_PER_DIMENSION} abgeschlossen...", end='\r')
+        
         avg_results = {
             'dimension': n,
             'time_encrypt': total_time_encrypt / TRIALS_PER_DIMENSION,
@@ -228,10 +216,9 @@ def main():
         }
         results.append(avg_results)
         
-        # Print summary for the dimension
-        print(f"\n  Avg. Encrypt Time: {convert_time(avg_results['time_encrypt'])}")
-        print(f"  Avg. Good Basis Decrypt: {avg_results['success_good']:.1f}% success in {convert_time(avg_results['time_good'])}")
-        print(f"  Avg. Bad Basis Decrypt:  {avg_results['success_bad']:.1f}% success in {convert_time(avg_results['time_bad'])}")
+        print(f"\n  Durchschn. Verschlüsselungszeit: {convert_time(avg_results['time_encrypt'])}")
+        print(f"  Durchschn. Entschlüsselung gute Basis: {avg_results['success_good']:.1f}% Erfolg in {convert_time(avg_results['time_good'])}")
+        print(f"  Durchschn. Entschlüsselung schlechte Basis:  {avg_results['success_bad']:.1f}% Erfolg in {convert_time(avg_results['time_bad'])}")
 
     csv_file = "lattice/lattice_summary_runtime.csv"
     csv_columns = ['Dimension', 'avg_Encrypt_Time', 'avg_Decrypt_Time_Good', 'avg_Success_Good', 'avg_Decrypt_Time_Bad', 'avg_Success_Bad']
@@ -242,54 +229,51 @@ def main():
             writer.writerow(csv_columns)
             for res in results:
                 writer.writerow([res['dimension'], res['time_encrypt'], res['time_good'], res['success_good'], res['time_bad'], res['success_bad']])
-        print(f"\nSummary results written to {csv_file}")
+        print(f"\nZusammenfassung der Ergebnisse wurde nach {csv_file} geschrieben")
     except IOError:
-        print(f"Error writing to {csv_file}")
-
-    # After saving the CSV, plot the results
+        print(f"FEHLER: Schreiben nach {csv_file} fehlgeschlagen")
+        
     plot_results(csv_file)
 
 def plot_results(csv_path):
-    """Reads the CSV data and plots the decryption time comparison."""
-    print(f"\nGenerating plots from {csv_path}...")
+    # Plottet die Ergebnisse der Entschlüsselungszeiten
+    print(f"\nErzeuge Plots aus {csv_path}...")
     try:
         df = pd.read_csv(csv_path)
         
-        # --- PLOT 1: LINEAR SCALE ---
         plt.figure(figsize=(12, 7))
-        plt.plot(df['Dimension'], df['avg_Decrypt_Time_Good'] * 1000, label='Good Basis Decryption (Private Key)', color='green')
-        plt.plot(df['Dimension'], df['avg_Decrypt_Time_Bad'] * 1000, label='Bad Basis Decryption (Public Key)', color='red')
+        plt.plot(df['Dimension'], df['avg_Decrypt_Time_Good'] * 1000, label='Entschlüsselung mit guter Basis (Privater Schlüssel)', color='green')
+        plt.plot(df['Dimension'], df['avg_Decrypt_Time_Bad'] * 1000, label='Entschlüsselung mit schlechter Basis (Öffentlicher Schlüssel)', color='red')
         
-        plt.title('Decryption Time vs. Lattice Dimension (Linear Scale)', fontsize=16)
-        plt.xlabel('Lattice Dimension (n)', fontsize=12)
-        plt.ylabel('Time (milliseconds)', fontsize=12)
+        plt.title('Entschlüsselungszeit vs. Gitterdimension (Lineare Skala)', fontsize=16)
+        plt.xlabel('Gitterdimension (n)', fontsize=12)
+        plt.ylabel('Zeit (Millisekunden)', fontsize=12)
         plt.legend()
         plt.grid(True, which='both', linestyle='--', linewidth=0.5)
         
         output_path_linear = os.path.join(os.path.dirname(csv_path), "lattice_run_plot_lin.png")
         plt.savefig(output_path_linear)
-        print(f"Plot saved to {output_path_linear}")
+        print(f"Plot gespeichert unter {output_path_linear}")
         plt.close()
 
-        # --- PLOT 2: LOGARITHMIC SCALE ---
         plt.figure(figsize=(12, 7))
-        plt.plot(df['Dimension'], df['avg_Decrypt_Time_Good'] * 1000, label='Good Basis Decryption (Private Key)', color='green')
-        plt.plot(df['Dimension'], df['avg_Decrypt_Time_Bad'] * 1000, label='Bad Basis Decryption (Public Key)', color='red')
+        plt.plot(df['Dimension'], df['avg_Decrypt_Time_Good'] * 1000, label='Entschlüsselung mit guter Basis (Privater Schlüssel)', color='green')
+        plt.plot(df['Dimension'], df['avg_Decrypt_Time_Bad'] * 1000, label='Entschlüsselung mit schlechter Basis (Öffentlicher Schlüssel)', color='red')
         
-        plt.title('Decryption Time vs. Lattice Dimension (Logarithmic Scale)', fontsize=16)
-        plt.xlabel('Lattice Dimension (n)', fontsize=12)
-        plt.ylabel('Time (milliseconds)', fontsize=12)
+        plt.title('Entschlüsselungszeit vs. Gitterdimension (Logarithmische Skala)', fontsize=16)
+        plt.xlabel('Gitterdimension (n)', fontsize=12)
+        plt.ylabel('Zeit (Millisekunden)', fontsize=12)
         plt.legend()
         plt.grid(True, which='both', linestyle='--', linewidth=0.5)
         plt.yscale('log')
         
         output_path_log = os.path.join(os.path.dirname(csv_path), "lattice_run_plot_log.png")
         plt.savefig(output_path_log)
-        print(f"Plot saved to {output_path_log}")
+        print(f"Plot gespeichert unter {output_path_log}")
         plt.close()
 
     except Exception as e:
-        print(f"Failed to generate plot: {e}")
+        print(f"FEHLER: Erstellen des Plots: {e} fehlgeschlagen")
 
 if __name__ == "__main__":
     main() 
