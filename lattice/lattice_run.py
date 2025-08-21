@@ -33,7 +33,7 @@ def generate_keys(n: int) -> Tuple[np.ndarray, np.ndarray]:
     return private_basis, public_basis
 
 def encrypt(message: str, n: int, noise_level: float) -> Tuple[List[List[float]], int]:
-    # Verschlüsselt eine Nachricht
+    # Verschlüsselt eine Nachricht nach dem GGH-Kryptosystem
     binary_message = ''.join(format(ord(char), '08b') for char in message)
     original_bit_length = len(binary_message)
     
