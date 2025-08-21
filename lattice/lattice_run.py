@@ -277,4 +277,4 @@ def plot_results(csv_path):
         print(f"FEHLER: Erstellen des Plots: {e} fehlgeschlagen")
 
 if __name__ == "__main__":
-    main() 
+    main()
