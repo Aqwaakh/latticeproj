@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 import os
 
 def convert_time(seconds):
-    # Konvertiert Sekunden in ein besser lesbares Zeitformat
+    # Converts seconds into a more readable time format
     if seconds < 1:
         return f"{seconds * 1000:.2f} ms"
     elif seconds < 60:
@@ -21,7 +21,7 @@ def convert_time(seconds):
         return f"{minutes} min {secs:.2f} s"
 
 def generate_keys(n: int) -> Tuple[np.ndarray, np.ndarray]:
-    # Erzeugt ein Paar von Gitterbasen
+    # Generates a pair of lattice bases
     private_basis = np.eye(n, dtype=int)
     public_basis = private_basis.copy()
     num_transformations = n * n
@@ -34,7 +34,7 @@ def generate_keys(n: int) -> Tuple[np.ndarray, np.ndarray]:
     return private_basis, public_basis
 
 def encrypt(message: str, n: int, noise_level: float) -> Tuple[List[List[float]], int]:
-    # Verschlüsselt eine Nachricht
+    # Encrypts a message
     binary_message = ''.join(format(ord(char), '08b') for char in message)
     original_bit_length = len(binary_message)
     
@@ -53,7 +53,7 @@ def encrypt(message: str, n: int, noise_level: float) -> Tuple[List[List[float]]
     return encrypted_vectors, original_bit_length
 
 def decrypt(solved_vectors: List[List[int]], n: int, original_bit_length: int) -> str:
-    # Entschlüsselt eine Nachricht
+    # Decrypts a message
     binary_message = ""
     for vector in solved_vectors:
         if not vector:
@@ -81,14 +81,14 @@ def decrypt(solved_vectors: List[List[int]], n: int, original_bit_length: int) -
     return message
 
 def solve_cvp_good_basis(target_vectors: List[List[float]]) -> List[List[int]]:
-    # Löst das CVP mit einer guten Basis
+    # Solves the CVP with a good basis
     solved_vectors = []
     for v in target_vectors:
         solved_vectors.append([int(round(c)) for c in v])
     return solved_vectors
 
 def solve_cvp_bad_basis(basis: np.ndarray, target_vectors: List[List[float]]) -> List[List[int]]:
-    # Löst das CVP mit einer schlechten Basis (LLL-Reduktion)
+    # Solves the CVP with a bad basis (LLL reduction)
     solved_vectors = []
     SCALE = 10000
     
@@ -107,18 +107,18 @@ def solve_cvp_bad_basis(basis: np.ndarray, target_vectors: List[List[float]]) ->
 
     except Exception as e:
         n = basis.shape[0]
-        print(f"FEHLER: CVP solver failed for dimension {n}: {e}")
+        print(f"ERROR: CVP solver failed for dimension {n}: {e}")
         return [[0] * n for _ in target_vectors]
 
 def measure_success(original_message: str, decrypted_message: str) -> float:
-    # Misst die Erfolgsrate der Entschlüsselung
+    # Measures the success rate of decryption
     if not original_message or not decrypted_message:
         return 0.0
     correct = sum(1 for i in range(min(len(original_message), len(decrypted_message))) if original_message[i] == decrypted_message[i])
     return (correct / len(original_message)) * 100
 
 def run_single_trial(n: int, message: str, noise_level: float):
-    # Führt einen einzelnen Verschlüsselungs-/Entschlüsselungsversuch durch
+    # Performs a single encryption/decryption trial
     _, public_basis = generate_keys(n)
     
     start_time_encrypt = time.time()
@@ -146,31 +146,31 @@ def run_single_trial(n: int, message: str, noise_level: float):
     }
 
 def main():
-    # Hauptfunktion zur Analyse der Genauigkeit
+    # Main function for accuracy analysis
     random.seed(42)
     np.random.seed(42)
 
     while True:
         try:
-            runtime_input = input("Bitte geben Sie die Laufzeitgrenze für das Skript in Minuten ein: ")
+            runtime_input = input("Please enter the runtime limit for the script in minutes: ")
             RUNTIME_LIMIT_MINUTES = float(runtime_input)
             if RUNTIME_LIMIT_MINUTES > 0:
                 break
             else:
-                print("Ungültige Eingabe. Bitte geben Sie eine positive Zahl ein.")
+                print("Invalid input. Please enter a positive number.")
         except ValueError:
-            print("Ungültige Eingabe. Bitte geben Sie eine Zahl ein.")
+            print("Invalid input. Please enter a number.")
 
     while True:
         try:
-            trials_input = input("Bitte geben Sie die Anzahl der Versuche pro Dimension ein: ")
+            trials_input = input("Please enter the number of trials per dimension: ")
             TRIALS_PER_DIMENSION = int(trials_input)
             if TRIALS_PER_DIMENSION > 0:
                 break
             else:
-                print("Ungültige Eingabe. Bitte geben Sie eine positive Ganzzahl ein.")
+                print("Invalid input. Please enter a positive integer.")
         except ValueError:
-            print("Ungültige Eingabe. Bitte geben Sie eine Ganzzahl ein.")
+            print("Invalid input. Please enter an integer.")
 
     script_start_time = time.time()
 
@@ -181,24 +181,24 @@ def main():
     max_dim = 500
     
     print("=" * 60)
-    print("Gitterbasierte Kryptographie Skalierungsanalyse - EXPERIMENT 2: GENAUIGKEIT")
-    print(f"Nachricht: '{message}'")
-    print(f"Rauschpegel: {noise_level}")
-    print(f"Testdimensionen: {min_dim} bis {max_dim} ({TRIALS_PER_DIMENSION} Versuche pro Dimension)")
-    print(f"ZEITLIMIT: {RUNTIME_LIMIT_MINUTES} MINUTE(N)")
+    print("Lattice-based Cryptography Scaling Analysis - EXPERIMENT 2: ACCURACY")
+    print(f"Message: '{message}'")
+    print(f"Noise Level: {noise_level}")
+    print(f"Test Dimensions: {min_dim} to {max_dim} ({TRIALS_PER_DIMENSION} trials per dimension)")
+    print(f"TIME LIMIT: {RUNTIME_LIMIT_MINUTES} MINUTE(S)")
     print("=" * 60)
     
     results = []
     for n in range(min_dim, max_dim + 1):
         elapsed_seconds = time.time() - script_start_time
         if elapsed_seconds > RUNTIME_LIMIT_MINUTES * 60:
-            print(f"\nZeitlimit von {RUNTIME_LIMIT_MINUTES} Minute(n) erreicht. Finalisiere Ergebnisse.")
+            print(f"\nTime limit of {RUNTIME_LIMIT_MINUTES} minute(s) reached. Finalizing results.")
             break
 
         total_time_encrypt, total_time_good, total_time_bad = 0, 0, 0
         total_success_good, total_success_bad = 0, 0
 
-        print(f"\n--- Testdimension {n} ---")
+        print(f"\n--- Test Dimension {n} ---")
         for i in range(TRIALS_PER_DIMENSION):
             trial_results = run_single_trial(n, message, noise_level)
             total_time_encrypt += trial_results['time_encrypt']
@@ -206,7 +206,7 @@ def main():
             total_time_bad += trial_results['time_bad']
             total_success_good += trial_results['success_good']
             total_success_bad += trial_results['success_bad']
-            print(f"  Versuch {i + 1}/{TRIALS_PER_DIMENSION} abgeschlossen...", end='\r')
+            print(f"  Trial {i + 1}/{TRIALS_PER_DIMENSION} completed...", end='\r')
         
         avg_results = {
             'dimension': n,
@@ -218,9 +218,9 @@ def main():
         }
         results.append(avg_results)
         
-        print(f"\n  Durchschn. Verschlüsselungszeit: {convert_time(avg_results['time_encrypt'])}")
-        print(f"  Durchschn. Entschlüsselung gute Basis: {avg_results['success_good']:.1f}% Erfolg in {convert_time(avg_results['time_good'])}")
-        print(f"  Durchschn. Entschlüsselung schlechte Basis:  {avg_results['success_bad']:.1f}% Erfolg in {convert_time(avg_results['time_bad'])}")
+        print(f"\n  Avg. Encryption Time: {convert_time(avg_results['time_encrypt'])}")
+        print(f"  Avg. Decryption Good Basis: {avg_results['success_good']:.1f}% success in {convert_time(avg_results['time_good'])}")
+        print(f"  Avg. Decryption Bad Basis:  {avg_results['success_bad']:.1f}% success in {convert_time(avg_results['time_bad'])}")
 
     csv_file = "lattice/lattice_summary_accuracy.csv"
     csv_columns = ['Dimension', 'avg_Encrypt_Time', 'avg_Decrypt_Time_Good', 'avg_Success_Good', 'avg_Decrypt_Time_Bad', 'avg_Success_Bad']
@@ -231,36 +231,36 @@ def main():
             writer.writerow(csv_columns)
             for res in results:
                 writer.writerow([res['dimension'], res['time_encrypt'], res['time_good'], res['success_good'], res['time_bad'], res['success_bad']])
-        print(f"\nZusammenfassung der Ergebnisse wurde nach {csv_file} geschrieben")
+        print(f"\nResults summary written to {csv_file}")
     except IOError:
-        print(f"FEHLER: Schreiben nach {csv_file} fehlgeschlagen")
+        print(f"ERROR: Writing to {csv_file} failed")
         
     plot_results(csv_file)
 
 def plot_results(csv_path):
-    # Plottet die Entschlüsselungserfolgsrate
-    print(f"\nErzeuge Plot aus {csv_path}...")
+    # Plots the decryption success rate
+    print(f"\nGenerating plot from {csv_path}...")
     try:
         df = pd.read_csv(csv_path)
         
         plt.figure(figsize=(12, 7))
-        plt.plot(df['Dimension'], df['avg_Success_Good'], label='Erfolg gute Basis (Privater Schlüssel)', color='green')
-        plt.plot(df['Dimension'], df['avg_Success_Bad'], label='Erfolg schlechte Basis (Öffentlicher Schlüssel)', color='red')
+        plt.plot(df['dimension'], df['avg_Success_Good'], label='Success Good Base (Private Key)', color='green')
+        plt.plot(df['dimension'], df['avg_Success_Bad'], label='Success Bad Base (Public Key)', color='red')
         
-        plt.title('Entschlüsselungserfolgsrate vs. Gitterdimension', fontsize=16)
-        plt.xlabel('Gitterdimension (n)', fontsize=12)
-        plt.ylabel('Durchschnittliche Erfolgsrate (%)', fontsize=12)
+        plt.title('Decryption Success Rate vs. Lattice Dimension', fontsize=16)
+        plt.xlabel('Lattice Dimension (n)', fontsize=12)
+        plt.ylabel('Average Success Rate (%)', fontsize=12)
         plt.legend()
         plt.grid(True, which='both', linestyle='--', linewidth=0.5)
         plt.ylim(-5, 105)
         
         output_path = os.path.join(os.path.dirname(csv_path), "lattice_acc_plot.png")
         plt.savefig(output_path)
-        print(f"Plot gespeichert unter {output_path}")
+        print(f"Plot saved at {output_path}")
         plt.close()
 
     except Exception as e:
-        print(f"FEHLER: Erstellen des Plots: {e} fehlgeschlagen")
+        print(f"ERROR: Plot creation failed: {e}")
 
 if __name__ == "__main__":
-    main() 
+    main()
