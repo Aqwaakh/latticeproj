@@ -223,7 +223,7 @@ def main():
         print(f"  Avg. Decryption Bad Basis:  {avg_results['success_bad']:.1f}% success in {convert_time(avg_results['time_bad'])}")
 
     csv_file = "lattice/lattice_summary_accuracy.csv"
-    csv_columns = ['Dimension', 'avg_Encrypt_Time', 'avg_Decrypt_Time_Good', 'avg_Success_Good', 'avg_Decrypt_Time_Bad', 'avg_Success_Bad']
+    csv_columns = ['dimension', 'avg_Encrypt_Time', 'avg_Decrypt_Time_Good', 'avg_Success_Good', 'avg_Decrypt_Time_Bad', 'avg_Success_Bad']
     
     try:
         with open(csv_file, 'w', newline='') as csvfile:
